@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./styles/index.css"; 
+import "./styles/cursor-animation.css"; 
 
 type Props = {
   onComplete: () => void;

@@ -1,15 +1,19 @@
-"use client"
+"use client";
 
 import { TerminalLoader } from "@/components/terminal-loader";
-import { useState } from "react";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!loading) {
+      redirect("/landing");
+    }
+  }, [loading]);
 
   return (
-    <div>
-   {loading && <TerminalLoader  onComplete={() => setLoading(false)} />}
-    <p>hola</p>
-    </div>
+    <>{loading && <TerminalLoader onComplete={() => setLoading(false)} />})</>
   );
 }
