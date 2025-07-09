@@ -13,8 +13,8 @@ export const TerminalLoader = ({ onComplete }: Props) => {
 
   const steps = [
     { text: "  npm run start", delay: 80 },
-    { text: " ✓ Ready on http://localhost:3000", delay: 70 },
-    { text: " Welcome to my portfolio!", delay: 80 },
+    { text: " ✓ Ready on http://localhost:3000", delay: 80 },
+    // { text: " Welcome to my portfolio!", delay: 80 },
   ];
 
   useEffect(() => {
