@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./styles/index.css"; 
 
 type Props = {
   onComplete: () => void;
@@ -8,12 +9,11 @@ export const TerminalLoader = ({ onComplete }: Props) => {
   const [displayText, setDisplayText] = useState<string>("");
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [showCursor, setShowCursor] = useState<boolean>(true);
+  const [cursorAnimate, setCursorAnimate] = useState<boolean>(false);
 
   const steps = [
-    { text: "  npm run build", delay: 80 },
-    { text: " ✓ Compiled successfully!", delay: 80 },
-    { text: " npm run start", delay: 80 },
-    { text: " ✓ Ready on http://localhost:3000", delay: 80 },
+    { text: "  npm run start", delay: 80 },
+    { text: " ✓ Ready on http://localhost:3000", delay: 70 },
     { text: " Welcome to my portfolio!", delay: 80 },
   ];
 
@@ -30,17 +30,18 @@ export const TerminalLoader = ({ onComplete }: Props) => {
           setDisplayText("")
           setTimeout(() => {
             setCurrentStep((prev) => prev + 1);
-          }, 800);
+          }, 400);
         }
       }, step.delay);
       return () => clearInterval(typeInterval);
     } else {
-        setTimeout(() => {
-            setShowCursor(false);
+        setShowCursor(false);
+        console.log("All steps completed"); 
+            // setCursorText("");
+            setCursorAnimate(true);
             setTimeout(() => {
                 onComplete();
-            }, 500);
-        }, 500);
+            }, 800);
         }
     }, [currentStep, onComplete]);
 
@@ -57,9 +58,9 @@ export const TerminalLoader = ({ onComplete }: Props) => {
   return (
     <div className="fixed inset-0 bg-black flex items-center justify-center">
       <div className="text-center">
-        <div className="font-mono text-2xl text-green-400 whitespace-pre-wrap">
+        <div className="font-mono text-4xl text-green-400 whitespace-pre-wrap">
           {displayText}
-          {showCursor && <span className="text-green-400">█</span>}
+          <span className={`${showCursor ? "text-green-400" : "text-black"} ${cursorAnimate && "terminal-loader"} ml-0.5 text-5xl`}>|</span>
         </div>
       </div>
     </div>
