@@ -3,9 +3,7 @@ import { Project } from ".";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div
-      className="bg-gray-900 border-2 border-green-400/30 hover:border-green-400 transition-all duration-300 group hover:shadow-lg hover:shadow-green-400/20"
-    >
+    <div className="bg-gray-900 border-2 border-green-400/30 hover:border-green-400 transition-all duration-300 group hover:shadow-lg hover:shadow-green-400/20">
       {/* Project Image */}
       <div className="relative overflow-hidden">
         <Image
@@ -48,28 +46,34 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         {/* Action Buttons */}
         <div className="flex gap-4">
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-black transition-all duration-200 font-mono text-sm"
-            >
-              <span>📁</span>
-              Code
-            </a>
-          )}
-          {project.demo && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-green-400 text-black hover:bg-green-300 transition-all duration-200 font-mono text-sm"
-            >
-              <span>🚀</span>
-              Live Demo
-            </a>
-          )}
+          {project.github.map((repo) => {
+            return (
+              <a
+                key={repo.name}
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-black transition-all duration-200 font-mono text-sm"
+              >
+                <span>📁</span>
+                {repo.name}
+              </a>
+            );
+          })}
+          {project.demos.map((demo) => {
+            return (
+              <a
+                key={demo.name}
+                href={demo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-green-400 text-black hover:bg-green-300 transition-all duration-200 font-mono text-sm"
+              >
+                <span>🚀</span>
+                {demo.name}
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>

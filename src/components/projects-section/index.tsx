@@ -7,9 +7,9 @@ export interface Project {
   title: string;
   description: string;
   technologies: string[];
-  github?: string;
-  demo?: string;
-  image?: string;
+  github: { name: string; url: string }[];
+  demos: { name: string; url: string }[];
+  image: string;
 }
 
 const projects: Project[] = [
@@ -29,15 +29,20 @@ const projects: Project[] = [
       "Stripe",
       "PostgreSQL",
     ],
-    github: "https://github.com/Servicios-libre/frontend",
-    demo: "https://serviciolibre.vercel.app",
+    github: [
+      { name: "frontend", url: "https://github.com/Servicios-libre/frontend" },
+      { name: "backend", url: "https://github.com/Servicios-libre/backend"},
+    ],
+    demos: [
+      { name: "Deploy Frontend", url: "https://serviciolibre.vercel.app" },
+      { name: "Deploy Backend", url: "https://back-servicio-libre.onrender.com" },
+    ],
     // status: "completed",
     image: "/placeholder.svg?height=200&width=400",
-  }
+  },
 ];
 
 export const ProjectsSection = () => {
-
   return (
     <section
       id="projects"
@@ -55,7 +60,9 @@ export const ProjectsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => <ProjectCard key={project.id} project={project} />)}
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
       </div>
     </section>
