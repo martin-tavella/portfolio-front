@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Project } from ".";
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project, language }: { project: Project; language: string }) => {
   return (
     <div className="bg-gray-900 border-2 border-green-400/30 hover:border-green-400 transition-all duration-300 group hover:shadow-lg hover:shadow-green-400/20">
       {/* Project Image */}
@@ -27,7 +27,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
 
         <p className="text-gray-300 mb-6 leading-relaxed">
-          {project.description}
+          {project.description.find((desc) => desc.language === language)?.text}
         </p>
 
         {/* Technologies */}
@@ -45,7 +45,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-4">
+        <div className="flex xl:flex-row flex-wrap gap-6 items-center justify-center">
+          <div className="flex flex-row gap-2">
           {project.github.map((repo) => {
             return (
               <a
@@ -60,6 +61,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
               </a>
             );
           })}
+          </div>
+          <div className="flex flex-row gap-2">
           {project.demos.map((demo) => {
             return (
               <a
@@ -74,6 +77,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               </a>
             );
           })}
+          </div>
         </div>
       </div>
     </div>
