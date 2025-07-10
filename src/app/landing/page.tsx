@@ -1,5 +1,6 @@
 "use client";
 
+import ContactSection from "@/components/contact-section";
 import { Navbar } from "@/components/navbar";
 import { ProjectsSection } from "@/components/projects-section";
 import { useState } from "react";
@@ -30,12 +31,7 @@ const Landing = () => {
 
         <ProjectsSection language={language} />
 
-        <section id="contact" className="min-h-90 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-6xl mb-4">{language === "en" ? "> Contact" : "> Contacto"}</h2>
-            <p className="text-xl">{"$ mail martin@portfolio.dev"}</p>
-          </div>
-        </section>
+        <ContactSection language={language} />
       </main>
     </div>
     </>
