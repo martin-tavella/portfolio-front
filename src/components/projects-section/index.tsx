@@ -1,59 +1,34 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
+import { getAllProjects } from "@/services/productsService";
 
 export interface Project {
-  id: string;
+  _id: string;
   title: string;
   description: { language: string; text: string }[];
   technologies: string[];
   github: { name: string; url: string }[];
   demos: { name: string; url: string }[];
-  image: string;
+  image: string[];
 }
 
-const projects: Project[] = [
-  {
-    id: "01",
-    title: "Servicio Libre",
-    description: [
-      {
-        language: "en",
-        text: "Full-stack application solution to freelance workers. Developed with payment integration, admin dashboard, chat worker-customer. Built with modern technologies for optimal performance.",
-      },
-      {
-        language: "es",
-        text: "Solución de aplicación full-stack para trabajadores freelance. Desarrollada con integración de pagos, panel de administración, chat entre trabajador y cliente. Construida con tecnologías modernas para un rendimiento óptimo.",
-      },
-    ],
-    technologies: [
-      "Next.js",
-      "React",
-      "Tailwind CSS",
-      "TypeScript",
-      "Node.js",
-      "NestJS",
-      "Mercado Pago",
-      "Stripe",
-      "PostgreSQL",
-    ],
-    github: [
-      { name: "frontend", url: "https://github.com/Servicios-libre/frontend" },
-      { name: "backend", url: "https://github.com/Servicios-libre/backend" },
-    ],
-    demos: [
-      { name: "Deploy Frontend", url: "https://serviciolibre.vercel.app" },
-      {
-        name: "Deploy Backend",
-        url: "https://back-servicio-libre.onrender.com",
-      },
-    ],
-    // status: "completed",
-    image: "/placeholder.svg?height=200&width=400",
-  },
-];
 
 export const ProjectsSection = ({ language }: { language: string }) => {
+
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projects = await getAllProjects();
+      setProjects(projects);
+    };
+
+    fetchProjects();
+  }, []);
+
+
   return (
     <section
       id="projects"
@@ -72,10 +47,11 @@ export const ProjectsSection = ({ language }: { language: string }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+          {projects?.map((project, index) => (
             <ProjectCard
-              key={project.id}
+              key={project._id}
               project={project}
+              index={index}
               language={language}
             />
           ))}

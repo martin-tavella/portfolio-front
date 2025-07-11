@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Project } from ".";
 
-const ProjectCard = ({ project, language }: { project: Project; language: string }) => {
+const ProjectCard = ({ project, index, language }: { project: Project; index: number, language: string }) => {
   return (
     <div className="bg-gray-900 border-2 border-green-400/30 hover:border-green-400 transition-all duration-300 group hover:shadow-lg hover:shadow-green-400/20">
       {/* Project Image */}
@@ -9,7 +9,7 @@ const ProjectCard = ({ project, language }: { project: Project; language: string
         <Image
           width={400}
           height={200}
-          src={project.image || "/placeholder.svg"}
+          src={project.image[0] || "/placeholder.svg"}
           alt={project.title}
           className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
         />
@@ -22,7 +22,7 @@ const ProjectCard = ({ project, language }: { project: Project; language: string
             {project.title}
           </h3>
           <span className="text-green-400/60 font-mono text-sm">
-            #{project.id}
+            #{index + 1}
           </span>
         </div>
 

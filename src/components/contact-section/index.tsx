@@ -135,7 +135,7 @@ const ContactSection = ({ language }: { language: string }) => {
           )}
           <button
             type="submit"
-            className="bg-green-400 text-black px-4 py-2 rounded hover:bg-green-500 transition-colors"
+            className="bg-green-400 text-black px-4 py-2 rounded my-2 hover:bg-green-500 transition-colors"
           >
             {language === "en" ? "Send Message" : "Enviar Mensaje"}
           </button>
