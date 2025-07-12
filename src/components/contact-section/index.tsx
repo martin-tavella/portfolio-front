@@ -1,5 +1,6 @@
 "use client";
 
+import sendEmail from "@/services/contactService";
 import validateContactForm from "@/utils/validateContactForm";
 import { useState } from "react";
 
@@ -52,7 +53,7 @@ const ContactSection = ({ language }: { language: string }) => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (Object.keys(errors).length > 0) {
       setMessage(
@@ -64,7 +65,17 @@ const ContactSection = ({ language }: { language: string }) => {
       return;
     }
 
-    console.log("Form submitted:", formData);
+    try {
+      const response = await sendEmail(formData);
+      if (response.status === 201) {
+        setMessage( language === "en"
+          ? "Email sent successfully!"
+          : "Correo electrónico enviado con éxito!"
+        )
+      }
+      } catch (error) {
+        console.error(error);
+    }
     setFormData({
       name: "",
       email: "",
