@@ -71,12 +71,30 @@ const techColors: Record<string, { bg: string; border: string; text: string }> =
     },
   };
 
-const TechCard = ({ tech }: { tech: Technology }) => {
+const TechCard = ({ tech, language }: { tech: Technology; language: string }) => {
   const colors = techColors[tech.name] || {
     bg: "bg-green-400/20",
     border: "border-green-400",
     text: "text-green-400",
   };
+
+  const categories = {
+    es: {
+      language: "Lenguaje",
+      library: "Librería",
+      framework: "Framework",
+      db: "Bases de datos",
+      other: "Otro",
+    },
+    en: {
+      language: "Languages",
+      library: "Library",
+      framework: "Frameworks",
+      db: "Database",
+      other: "Other",
+    },
+  };
+
 
   return (
     <div className="group relative">
@@ -110,7 +128,7 @@ const TechCard = ({ tech }: { tech: Technology }) => {
         {/* Category badge */}
         <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <span className="text-xs font-mono px-1 py-0.5 bg-black/50 rounded">
-            {tech.category}
+            {language === "en" ? categories.en[tech.category] : categories.es[tech.category]}
           </span>
         </div>
       </div>
