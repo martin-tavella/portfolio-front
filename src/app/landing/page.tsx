@@ -3,6 +3,7 @@
 import ContactSection from "@/components/contact-section";
 import { Navbar } from "@/components/navbar";
 import { ProjectsSection } from "@/components/projects-section";
+import SkillsSection from "@/components/skills-section/SkillsSection";
 import { useState } from "react";
 
 const Landing = () => {
@@ -22,13 +23,8 @@ const Landing = () => {
           </div>
         </section>
 
-        <section id="about" className="min-h-90 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-6xl mb-4">{language === "en" ? "> About me" : "> Sobre mí"}</h2>
-            <p className="text-xl">{"$ cat about.txt"}</p>
-          </div>
-        </section>
-
+        <SkillsSection language={language} />
+        
         <ProjectsSection language={language} />
 
         <ContactSection language={language} />
