@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { getAllProjects } from "@/services/productsService";
+import ProjectCardSkeleton from "./ProjectCardSkeleton";
 
 export interface Project {
   _id: string;
@@ -14,27 +15,27 @@ export interface Project {
   image: string[];
 }
 
-
 export const ProjectsSection = ({ language }: { language: string }) => {
-
   const [projects, setProjects] = useState<Project[]>([]);
-
-  // const [error, setError] = useState(null);
-
- 
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const projects = await getAllProjects();
-      setProjects(projects);
-      // setIsLoading(false);
+      try {
+        const projects = await getAllProjects();
+        setProjects(projects);
+      } catch {
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     fetchProjects();
   }, []);
 
-  
-
+  const numberOfSkeleton: number = 4;
 
   return (
     <section
@@ -54,16 +55,29 @@ export const ProjectsSection = ({ language }: { language: string }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {projects?.map((project, index) => (
-            <ProjectCard
-              key={project._id}
-              project={project}
-              index={index}
-              language={language}
-            />
-          ))}
+          {isLoading
+            ? Array.from({ length: numberOfSkeleton }).map((_, index) => (
+                <ProjectCardSkeleton key={index} />
+              ))
+            : !error &&
+              projects?.map((project, index) => (
+                <ProjectCard
+                  key={project._id}
+                  project={project}
+                  index={index}
+                  language={language}
+                />
+              ))}
         </div>
+        {error && (
+          <div className="flex justify-center items-center">
+            <p className="text-3xl">
+              {language === "en"
+                ? "No projects found ☹️"
+                : "No se encontraron proyectos ☹️"}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

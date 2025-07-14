@@ -1,0 +1,24 @@
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+/* Base para los elementos del skeleton a los que se aplica la animación */
+.skeleton-image,
+.skeleton-title,
+.skeleton-text,
+.skeleton-tag,
+.skeleton-button,
+.skeleton-deploy-button {
+  background-color: #2d3748; 
+  
+  background-image: linear-gradient(to right, #2d3748 0%, #4a5568 20%, #2d3748 40%, #2d3748 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  
+  animation: shimmer 1.5s linear infinite;
+}
