@@ -2,6 +2,7 @@
 
 import AboutSection from "@/components/about-section/AboutSection";
 import ContactSection from "@/components/contact-section";
+import { HeroSection } from "@/components/hero-section/HeroSection";
 import { Navbar } from "@/components/navbar";
 import { ProjectsSection } from "@/components/projects-section";
 import { useState } from "react";
@@ -16,12 +17,7 @@ const Landing = () => {
         <div className="bg-black min-h-screen text-green-400 font-mono">
 
       <main className="pt-32">
-        <section id="home" className="min-h-90 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl mb-4">{language === "en" ? "> Welcome to my portfolio" : "> Bienvenido a mi portfolio"}</h1>
-            <p className="text-xl">{"$ whoami"}</p>
-          </div>
-        </section>
+        <HeroSection language={language}/>
 
         <AboutSection language={language} />
         
