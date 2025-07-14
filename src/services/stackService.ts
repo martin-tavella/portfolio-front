@@ -1,4 +1,4 @@
-import api from "@/app/config/axiosConfig";
+import api from "@/config/axiosConfig";
 import { Technology } from "@/components/skills/SkillsList";
 
 const getTechnologies = async () => {

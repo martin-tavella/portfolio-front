@@ -1,4 +1,4 @@
-import api from "@/app/config/axiosConfig"
+import api from "@/config/axiosConfig"
 
 
 export const getAllProjects = async () => {
