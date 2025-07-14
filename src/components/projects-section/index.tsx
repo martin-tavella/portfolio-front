@@ -19,14 +19,21 @@ export const ProjectsSection = ({ language }: { language: string }) => {
 
   const [projects, setProjects] = useState<Project[]>([]);
 
+  // const [error, setError] = useState(null);
+
+ 
+
   useEffect(() => {
     const fetchProjects = async () => {
       const projects = await getAllProjects();
       setProjects(projects);
+      // setIsLoading(false);
     };
 
     fetchProjects();
   }, []);
+
+  
 
 
   return (
@@ -47,6 +54,7 @@ export const ProjectsSection = ({ language }: { language: string }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
           {projects?.map((project, index) => (
             <ProjectCard
               key={project._id}

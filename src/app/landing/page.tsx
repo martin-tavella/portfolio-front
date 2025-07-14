@@ -1,9 +1,9 @@
 "use client";
 
+import AboutSection from "@/components/about-section/AboutSection";
 import ContactSection from "@/components/contact-section";
 import { Navbar } from "@/components/navbar";
 import { ProjectsSection } from "@/components/projects-section";
-import SkillsSection from "@/components/skills-section/SkillsSection";
 import { useState } from "react";
 
 const Landing = () => {
@@ -23,7 +23,7 @@ const Landing = () => {
           </div>
         </section>
 
-        <SkillsSection language={language} />
+        <AboutSection language={language} />
         
         <ProjectsSection language={language} />
 
