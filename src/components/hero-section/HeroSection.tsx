@@ -18,7 +18,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
 
-  const fullText = language === "en" ? "> Welcome to my portfolio" : "> Bienvenido a mi portafolio"
+  const fullText = language === "en" ? "> Welcome to my portfolio" : "> Bienvenido a mi portfolio"
 
   // Efecto de typing
   useEffect(() => {
@@ -30,6 +30,11 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
       return () => clearTimeout(timeout)
     }
   }, [currentIndex, fullText])
+
+  useEffect(() => {
+    setDisplayText("")
+    setCurrentIndex(0)
+  },[language])
 
   // Cursor parpadeante
   useEffect(() => {
@@ -55,7 +60,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           transition={{ duration: 1, delay: 0.5 }}
           className="mb-8"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-green-400 font-mono mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-green-400 font-mono mb-6">
             {displayText}
             <span className={`${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}>|</span>
           </h1>

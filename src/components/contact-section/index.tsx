@@ -86,14 +86,14 @@ const ContactSection = ({ language }: { language: string }) => {
   return (
     <section
       id="contact"
-      className="min-h-90 flex flex-col items-center justify-center py-10"
+      className="min-h-screen flex flex-col items-center justify-center py-20"
     >
-      <div className="text-center">
-        <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green-400 mb-2 sm:mb-4">
+      <div className="text-center pt-10">
+        <h2 className="text-4xl sm:text-4xl md:text-6xl font-bold text-green-400 mb-2 sm:mb-4">
           {language === "en" ? "> Contact" : "> Contacto"}
         </h2>
         <p className="text-sm sm:text-xl text-gray-300">{"$ mail martutavella@gmail.com"}</p>
-        <p className="text-2xl py-5 text-center">
+        <p className="text-xl py-5 text-center">
           {!message
             ? language === "en"
               ? "Get in touch!"

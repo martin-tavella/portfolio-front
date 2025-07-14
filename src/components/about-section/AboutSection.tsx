@@ -5,8 +5,8 @@ const AboutSection = ({ language }: { language: string }) => {
     <section id="about" className="min-h-screen py-10 sm:py-20 px-2 sm:px-4 lg:px-10 bg-black">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green-400 mb-2 sm:mb-4">
+        <div className="text-center mb-8 sm:mb-16 py-15">
+          <h2 className="text-4xl md:text-6xl font-bold text-green-400 mb-2 sm:mb-4">
             {language === "en" ? "> About me" : "> Sobre mi"}
           </h2>
           <p className="text-sm sm:text-xl text-gray-300">{"$ cat about.txt"}</p>

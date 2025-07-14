@@ -42,11 +42,11 @@ export const ProjectsSection = ({ language }: { language: string }) => {
       className="min-h-screen py-20 px-4 sm:px-6 lg:px-10 bg-black"
     >
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green-400 mb-2 sm:mb-4">
+        <div className="text-center mb-16 py-15">
+          <h2 className="text-4xl md:text-6xl font-bold text-green-400 mb-2 sm:mb-4">
             {language === "en" ? "> Projects" : "> Proyectos"}
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto mt-4">
             {language === "en"
               ? "A collection of projects I've built using various technologies and frameworks"
               : "Una colección de proyectos que he construido utilizando diversas tecnologías y frameworks"}
