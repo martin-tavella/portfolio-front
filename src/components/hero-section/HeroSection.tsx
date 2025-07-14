@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import img from "../../../public/img/temporal-img.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+
 
 // Importar ParallaxBackground dinámicamente sin SSR
 const ParallaxBackground = dynamic(
@@ -32,6 +36,25 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
 
   const nameText =
     language === "en" ? " > I am Martín Tavella" : " > Yo soy Martín Tavella";
+
+  const socialLinks = [
+    {
+      name: "GitHub",
+      url: "https://github.com/martin-tavella",
+      icon: <FontAwesomeIcon icon={faGithub} />, // Using text icon for consistency with terminal theme
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/martintavella/",
+      icon:  <FontAwesomeIcon icon={faLinkedin} />,
+    },
+    {
+      name: "Email",
+      url: "mailto:martutavella@gmail.com",
+      icon:  <FontAwesomeIcon icon={faMailBulk} />,
+    },
+  ]
+
 
   // Efecto de typing para el mensaje de bienvenida
    useEffect(() => {
@@ -183,6 +206,31 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           className="flex flex-col-reverse gap-10 items-center justify-center mt-20" // Ajusta el margen superior
         >
           {/* Placeholder de imagen */}
+          <motion.div
+           initial={{ opacity: 0, scale: 0.8 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 0.5, delay: totalTypingDelay + 1 }}
+          >
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 border-2 border-green-400/30 text-green-400 hover:bg-green-400/10 hover:text-green-300 transition-all duration-200 font-mono text-sm sm:text-base"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: totalTypingDelay + 1.5 + index * 0.1 }} // Staggered appearance
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="text-lg">{link.icon}</span>
+                {link.name}
+              </motion.a>
+            ))}
+          </div>
+          </motion.div>
           <motion.img
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
