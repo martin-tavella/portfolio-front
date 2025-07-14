@@ -113,7 +113,7 @@ const ParallaxBackground = () => {
   }
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none">
       {/* Grid de fondo */}
       <div className="absolute inset-0 opacity-5 z-[-1]">
         <div
