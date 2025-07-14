@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import ParallaxBackground from "../background/ParallaxBackground"
+import dynamic from "next/dynamic"
 
-
+// Importar ParallaxBackground dinámicamente sin SSR
+const ParallaxBackground = dynamic(() => import("../background/ParallaxBackground"), {
+  ssr: false,
+})
 
 interface HeroSectionProps {
   language: string
@@ -15,7 +18,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
 
-  const fullText = language === "en" ? "> Welcome to my portfolio" : "> Bienvenido a mi portfolio"
+  const fullText = language === "en" ? "> Welcome to my portfolio" : "> Bienvenido a mi portafolio"
 
   // Efecto de typing
   useEffect(() => {
@@ -27,11 +30,6 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
       return () => clearTimeout(timeout)
     }
   }, [currentIndex, fullText])
-
-  useEffect(() => {
-    setDisplayText("")
-    setCurrentIndex(0)
-  }, [language])
 
   // Cursor parpadeante
   useEffect(() => {
@@ -77,19 +75,19 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 3 }}
-          className="space-y-15"
+          className="space-y-4"
         >
           <div className="text-green-300 font-mono text-sm sm:text-base">
             {language === "en"
-              ? "Full Stack Developer | Backend specialized"
-              : "Desarrollador Full Stack | Especializado en Backend"}
+              ? "Full Stack Developer | Backend Specialist"
+              : "Desarrollador Full Stack | Especialista Backend"}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm font-mono text-gray-400 p-4">
+          <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm font-mono text-gray-400">
             <span className="border border-green-400/30 px-3 py-1 bg-black/30">Node.js</span>
-            <span className="border border-green-400/30 px-3 py-1 bg-black/30">TypeScript</span>
-            <span className="border border-green-400/30 px-3 py-1 bg-black/30">Nest.js</span>
             <span className="border border-green-400/30 px-3 py-1 bg-black/30">React</span>
+            <span className="border border-green-400/30 px-3 py-1 bg-black/30">TypeScript</span>
+            <span className="border border-green-400/30 px-3 py-1 bg-black/30">Next.js</span>
           </div>
         </motion.div>
 
@@ -98,7 +96,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 4 }}
-          className="absolute bottom-13 hidden sm:block  left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -107,7 +105,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           >
             ↓
           </motion.div>
-          <div className="text-green-400 font-mono text-xs my-2">
+          <div className="text-green-400 font-mono text-xs mt-2">
             {language === "en" ? "scroll down" : "desplázate"}
           </div>
         </motion.div>
