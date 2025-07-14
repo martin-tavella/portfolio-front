@@ -83,7 +83,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
               : "Desarrollador Full Stack | Especialista Backend"}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm font-mono text-gray-400">
+          <div className="flex flex-wrap justify-center gap-4 mt-20 text-xs sm:text-sm font-mono text-gray-400">
             <span className="border border-green-400/30 px-3 py-1 bg-black/30">Node.js</span>
             <span className="border border-green-400/30 px-3 py-1 bg-black/30">React</span>
             <span className="border border-green-400/30 px-3 py-1 bg-black/30">TypeScript</span>
@@ -96,7 +96,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 4 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-10 sm:block hidden left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
