@@ -101,7 +101,7 @@ const ContactSection = ({ language }: { language: string }) => {
             : message}
         </p>
       </div>
-      <form onSubmit={handleSubmit} className="max-w-3/6 w-full">
+      <form onSubmit={handleSubmit} className="max-w-5/6 lg:max-w-4/6  xl:max-w-3/6 w-full">
         <div className="mt-8">
           <input
             name="name"
