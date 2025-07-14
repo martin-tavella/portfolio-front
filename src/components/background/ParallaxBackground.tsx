@@ -15,6 +15,7 @@ interface ParallaxElement {
 const ParallaxBackground = () => {
   const [elements, setElements] = useState<ParallaxElement[]>([])
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isClient, setIsClient] = useState(false)
 
   const terminalChars = [
     ">",
@@ -57,14 +58,24 @@ const ParallaxBackground = () => {
     "app",
   ]
 
+  // Verificar si estamos en el cliente
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
+
     const generateElements = () => {
       const newElements: ParallaxElement[] = []
+      const width = typeof window !== "undefined" ? window.innerWidth : 1200
+      const height = typeof window !== "undefined" ? window.innerHeight : 800
+
       for (let i = 0; i < 50; i++) {
         newElements.push({
           id: i,
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
+          x: Math.random() * width,
+          y: Math.random() * height,
           char: terminalChars[Math.floor(Math.random() * terminalChars.length)],
           speed: Math.random() * 0.5 + 0.1,
           opacity: Math.random() * 0.3 + 0.1,
@@ -74,12 +85,17 @@ const ParallaxBackground = () => {
     }
 
     generateElements()
-    window.addEventListener("resize", generateElements)
-    return () => window.removeEventListener("resize", generateElements)
-  }, [])
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", generateElements)
+      return () => window.removeEventListener("resize", generateElements)
+    }
+  }, [isClient])
 
   // Seguir el mouse
   useEffect(() => {
+    if (!isClient || typeof window === "undefined") return
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: (e.clientX - window.innerWidth / 2) / 50,
@@ -89,10 +105,15 @@ const ParallaxBackground = () => {
 
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+  }, [isClient])
+
+  // No renderizar nada hasta que estemos en el cliente
+  if (!isClient) {
+    return null
+  }
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
       {/* Grid de fondo */}
       <div className="absolute inset-0 opacity-5 z-[-1]">
         <div
@@ -162,34 +183,39 @@ const ParallaxBackground = () => {
 
       {/* Efecto de lluvia de código */}
       <div className="absolute inset-0 z-[-1]">
-        {Array.from({ length: 10 }).map((_, i) => (
-          <motion.div
-            key={`rain-${i}`}
-            className="absolute text-green-400 font-mono text-xs opacity-20 z-[-1]"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: -50,
-            }}
-            animate={{
-              y: window.innerHeight + 50,
-            }}
-            transition={{
-              duration: Math.random() * 10 + 5,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-              delay: Math.random() * 5,
-            }}
-            style={{
-              zIndex: -1,
-            }}
-          >
-            {Array.from({ length: Math.floor(Math.random() * 10) + 5 }).map((_, j) => (
-              <div key={j} className="mb-2">
-                {terminalChars[Math.floor(Math.random() * terminalChars.length)]}
-              </div>
-            ))}
-          </motion.div>
-        ))}
+        {Array.from({ length: 10 }).map((_, i) => {
+          const width = typeof window !== "undefined" ? window.innerWidth : 1200
+          const height = typeof window !== "undefined" ? window.innerHeight : 800
+
+          return (
+            <motion.div
+              key={`rain-${i}`}
+              className="absolute text-green-400 font-mono text-xs opacity-20 z-[-1]"
+              initial={{
+                x: Math.random() * width,
+                y: -50,
+              }}
+              animate={{
+                y: height + 50,
+              }}
+              transition={{
+                duration: Math.random() * 10 + 5,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+                delay: Math.random() * 5,
+              }}
+              style={{
+                zIndex: -1,
+              }}
+            >
+              {Array.from({ length: Math.floor(Math.random() * 10) + 5 }).map((_, j) => (
+                <div key={j} className="mb-2">
+                  {terminalChars[Math.floor(Math.random() * terminalChars.length)]}
+                </div>
+              ))}
+            </motion.div>
+          )
+        })}
       </div>
 
       {/* Círculos pulsantes */}
@@ -221,4 +247,3 @@ const ParallaxBackground = () => {
 
 export default ParallaxBackground
 export { ParallaxBackground }
-
