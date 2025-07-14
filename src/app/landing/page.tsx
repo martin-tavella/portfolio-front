@@ -2,6 +2,7 @@
 
 import AboutSection from "@/components/about-section/AboutSection";
 import ContactSection from "@/components/contact-section";
+import Footer from "@/components/footer/Footer";
 import { HeroSection } from "@/components/hero-section/HeroSection";
 import { Navbar } from "@/components/navbar";
 import { ProjectsSection } from "@/components/projects-section";
@@ -25,6 +26,7 @@ const Landing = () => {
 
         <ContactSection language={language} />
       </main>
+      <Footer language={language}/>
     </div>
     </>
     )

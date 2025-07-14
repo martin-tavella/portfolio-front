@@ -24,8 +24,8 @@ const AboutSection = ({ language }: { language: string }) => {
               <div className="space-y-2 sm:space-y-4 text-gray-300">
                 <p className="leading-relaxed text-sm sm:text-base">
                   {language === "en"
-                    ? "Full Stack Developer specialized in Backend passionate about creating efficient and scalable web solutions. I enjoy turning complex problems into simple, beautiful and intuitive designs in the front, and robust and easy-to-consume APIs in the back."
-                    : "Desarrollador Full Stack especializado en Backend apasionado por crear soluciones web eficientes y escalables. Disfruto convertir problemas complejos en diseños simples, hermosos e intuitivos en el front, y API's robustas y fáciles de consumir en el back."}
+                    ? "Full Stack Developer specialized in Backend passionate about creating efficient and scalable web solutions. I enjoy turning complex problems into simple and intuitive designs in the front, and robust and easy-to-consume APIs in the back."
+                    : "Desarrollador Full Stack especializado en Backend apasionado por crear soluciones web eficientes y escalables. Disfruto convertir problemas complejos en diseños simples e intuitivos en el front, y API's robustas y fáciles de consumir en el back."}
                 </p>
                 <p className="leading-relaxed text-sm sm:text-base">
                   {language === "en"
