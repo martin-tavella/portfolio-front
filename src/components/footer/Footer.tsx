@@ -1,5 +1,8 @@
 "use client"
 
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faMailBulk } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { motion } from "framer-motion"
 
 interface FooterProps {
@@ -10,22 +13,22 @@ const Footer = ({ language }: FooterProps) => {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    {
-      name: "GitHub",
-      url: "https://github.com/martin-tavella",
-      icon: "📁",
-    },
-    {
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/martin-tavella",
-      icon: "💼",
-    },
-    {
-      name: "Email",
-      url: "mailto:martutavella@gmail.com",
-      icon: "📧",
-    },
-  ]
+      {
+        name: "GitHub",
+        url: "https://github.com/martin-tavella",
+        icon: <FontAwesomeIcon icon={faGithub} />, // Using text icon for consistency with terminal theme
+      },
+      {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/martintavella/",
+        icon:  <FontAwesomeIcon icon={faLinkedin} />,
+      },
+      {
+        name: "Email",
+        url: "mailto:martutavella@gmail.com",
+        icon:  <FontAwesomeIcon icon={faMailBulk} />,
+      },
+    ]
 
   return (
     <footer className="bg-black border-t-2 border-green-400 py-8 px-4 sm:px-6 lg:px-10 mt-20">
