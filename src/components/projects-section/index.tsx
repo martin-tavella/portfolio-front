@@ -43,7 +43,7 @@ export const ProjectsSection = ({ language }: { language: string }) => {
     >
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green-400 mb-2 sm:mb-4">
             {language === "en" ? "> Projects" : "> Proyectos"}
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
