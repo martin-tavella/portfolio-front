@@ -40,7 +40,7 @@ const SkillsSection = ({ language }: { language: string }) => {
         </h2>
         <p className="text-xl">{"$ cat stack.txt"}</p>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-10 ">
+      <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 ${isLoading ? "gap-10 -m-20" : "gap-6"} mt-10`}>
         {isLoading
           ? Array.from({ length: numberOfSkeletons }).map((_, index) => {
               return <TechCardSkeleton key={index} />;

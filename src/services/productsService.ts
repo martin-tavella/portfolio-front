@@ -7,5 +7,6 @@ export const getAllProjects = async () => {
     return response.data;
     } catch (err) {
         console.log(err);
+        throw new Error
     }
 }

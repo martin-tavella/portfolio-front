@@ -5,13 +5,12 @@ const ProjectCard = ({ project, index, language }: { project: Project; index: nu
   return (
     <div className="bg-gray-900 border-2 border-green-400/30 hover:border-green-400 transition-all duration-300 group hover:shadow-lg hover:shadow-green-400/20">
       {/* Project Image */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden w-full aspect-video">
         <Image
-          width={400}
-          height={200}
+          fill
           src={project.image[0] || "/placeholder.svg"}
           alt={project.title}
-          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover"
         />
       </div>
 
