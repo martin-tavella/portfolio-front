@@ -10,6 +10,7 @@ export interface Technology {
   name: string;
   image: string;
   category: "language" | "library" | "framework" | "db" | "other";
+  type: "frontend" | "backend" | "fullstack" | "db" | "tools"
   order: number;
   active: boolean;
 }
