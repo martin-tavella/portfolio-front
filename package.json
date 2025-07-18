@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.mjs",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +17,7 @@
     "axios": "^1.10.0",
     "framer-motion": "^12.23.3",
     "next": "15.3.5",
+    "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

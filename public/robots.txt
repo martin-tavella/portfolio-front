@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.martintavella.dev
+
+# Sitemaps
+Sitemap: https://www.martintavella.dev/sitemap.xml
