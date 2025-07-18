@@ -4,7 +4,6 @@ const AboutSection = ({ language }: { language: string }) => {
   return (
     <section id="about" className="min-h-screen py-10 sm:py-20 px-2 sm:px-4 lg:px-10 bg-black">
       <div className="container mx-auto max-w-6xl">
-        {/* Header */}
         <div className="text-center mb-8 sm:mb-16 py-15">
           <h2 className="text-4xl md:text-6xl font-bold text-green-400 mb-2 sm:mb-4">
             {language === "en" ? "> About me" : "> Sobre mi"}
@@ -12,9 +11,7 @@ const AboutSection = ({ language }: { language: string }) => {
           <p className="text-sm sm:text-xl text-gray-300">{"$ cat about.txt"}</p>
         </div>
 
-        {/* About Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-8 sm:mb-16">
-          {/* Personal Info */}
           <div className="space-y-4 sm:space-y-6">
             <div className="border-2 border-green-400/30 bg-gray-900 p-3 sm:p-6">
               <h3 className="text-lg sm:text-2xl font-bold text-green-400 mb-2 sm:mb-4 font-mono break-words">
@@ -35,7 +32,6 @@ const AboutSection = ({ language }: { language: string }) => {
               </div>
             </div>
 
-            {/* Education */}
             <div className="border-2 border-green-400/30 bg-gray-900 p-3 sm:p-6">
               <h3 className="text-lg sm:text-2xl font-bold text-green-400 mb-2 sm:mb-4 font-mono break-words">
                 {"> "}
@@ -62,7 +58,6 @@ const AboutSection = ({ language }: { language: string }) => {
             </div>
           </div>
 
-          {/* What I Do & Current Focus */}
           <div className="space-y-4 sm:space-y-6">
             <div className="border-2 border-green-400/30 bg-gray-900 p-3 sm:p-6">
               <h3 className="text-lg sm:text-2xl font-bold text-green-400 mb-2 sm:mb-4 font-mono break-words">
@@ -99,7 +94,6 @@ const AboutSection = ({ language }: { language: string }) => {
               </div>
             </div>
 
-            {/* Current Focus */}
             <div className="border-2 border-green-400/30 bg-gray-900 p-3 sm:p-6">
               <h3 className="text-lg sm:text-2xl font-bold text-green-400 mb-2 sm:mb-4 font-mono break-words">
                 {"> "}
@@ -135,7 +129,6 @@ const AboutSection = ({ language }: { language: string }) => {
 
         <SkillsList language={language} />
 
-        {/* Fun Facts */}
         <div className="mt-8 sm:mt-16 text-center">
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 px-4 sm:px-8 py-4 border-2 border-green-400/30 bg-gray-900 max-w-full">
             <div className="text-center">
