@@ -63,7 +63,7 @@ const ContactSection = ({ language }: ContactSectionProps) => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors)
       setMessage(
-        language === "en" ? "Please fix the errors in the form." : "Por favor, corrige los errores en el formulario.",
+        language === "en" ? "Please fix the errors in the form." : "Por favor, corrige los errores del formulario.",
       )
       return
     }
