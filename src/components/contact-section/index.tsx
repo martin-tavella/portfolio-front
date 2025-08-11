@@ -4,9 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import sendEmail from "@/services/contactService";
 import validateContactForm from "@/utils/validateContactForm";
-import emailSender from "@/utils/emailSender";
 
 interface ContactSectionProps {
   language: string;
