@@ -1,0 +1,69 @@
+[
+  {
+    "title": "Servicio Libre",
+    "description": [
+      {
+        "language": "en",
+        "text": "Frontend application solution for freelance workers. Developed with modern technologies for optimal performance, featuring payment integration and an admin dashboard."
+      },
+      {
+        "language": "es",
+        "text": "Aplicación frontend para trabajadores freelance. Desarrollada con tecnologías modernas para un rendimiento óptimo, incluyendo integración de pagos y panel de administración."
+      }
+    ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "github": [
+      {
+        "name": "frontend",
+        "url": "https://github.com/Servicios-libre/frontend"
+      }
+    ],
+    "image": [
+      "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752191586/servicio-libre-landing_sunei2.png"
+    ],
+    "demos": [
+      {
+        "name": "Deploy Frontend",
+        "url": "https://serviciolibre.vercel.app"
+      }
+    ]
+  },
+  {
+    "title": "Servicio Libre - API",
+    "description": [
+      {
+        "language": "en",
+        "text": "Backend API for the Servicio Libre full-stack app. Built with Node.js and NestJS, it manages payment processing, chat functionality, and database operations with PostgreSQL."
+      },
+      {
+        "language": "es",
+        "text": "API backend para la aplicación full-stack Servicio Libre. Construida con Node.js y NestJS, gestiona procesamiento de pagos, chat y operaciones con base de datos PostgreSQL."
+      }
+    ],
+    "technologies": [
+      "Node.js",
+      "NestJS",
+      "Mercado Pago",
+      "Stripe",
+      "PostgreSQL"
+    ],
+    "image": ["https://res.cloudinary.com/dmeuurnnv/image/upload/v1754950302/Captura_de_pantalla_2025-08-07_002759_odfmfe.png"],
+    "github": [
+      {
+        "name": "backend",
+        "url": "https://github.com/Servicios-libre/backend"
+      }
+    ],
+    "demos": [
+      {
+        "name": "Deploy Backend",
+        "url": "https://back-servicio-libre.onrender.com"
+      }
+    ]
+  }
+]

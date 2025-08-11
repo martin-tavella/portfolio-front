@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from "react";
 import TechCard from "./TechCard";
-import getTechnologies from "@/services/stackService";
+import data from "./data.json";
 import TechCardSkeleton from "./TechCardSkeleton";
 
 export interface Technology {
-  _id: string;
+  // _id: string;
   name: string;
   image: string;
-  category: "language" | "library" | "framework" | "db" | "other";
-  type: "frontend" | "backend" | "fullstack" | "db" | "tools"
+  category: string;
+  // type: "frontend" | "backend" | "fullstack" | "db" | "tools"
   order: number;
   active: boolean;
 }
@@ -22,9 +22,8 @@ const SkillsSection = ({ language }: { language: string }) => {
   const numberOfSkeletons: number = 14;
 
   useEffect(() => {
-    const fetchData = async () => {
-      const technologies = await getTechnologies();
-      setTechnologies(technologies);
+    const fetchData = () => {
+      setTechnologies(data);
       setIsLoading(false);
     };
 
@@ -46,8 +45,8 @@ const SkillsSection = ({ language }: { language: string }) => {
           ? Array.from({ length: numberOfSkeletons }).map((_, index) => {
               return <TechCardSkeleton key={index} />;
             })
-          : technologies.map((tech: Technology) => (
-              <TechCard key={tech._id} tech={tech} language={language} />
+          : technologies.map((tech: Technology, index) => (
+              <TechCard key={index} tech={tech} language={language} />
             ))}
       </div>
     </article>
