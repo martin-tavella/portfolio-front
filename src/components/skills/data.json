@@ -1,0 +1,100 @@
+[
+  {
+    "name": "React",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278337/react-svgrepo-com_elzrfz.svg",
+    "category": "library",
+    "order": 6,
+    "active": true
+  },
+  {
+    "name": "Next.js",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278892/nextjs-fill-svgrepo-com_m96ykb.svg",
+    "category": "framework",
+    "order": 8,
+    "active": true
+  },
+  {
+    "name": "JavaScript",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278892/javascript-svgrepo-com_riogu9.svg",
+    "category": "language",
+    "order": 1,
+    "active": true
+  },
+  {
+    "name": "TypeScript",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278891/typescript-svgrepo-com_v231wv.svg",
+    "category": "language",
+    "order": 2,
+    "active": true
+  },
+  {
+    "name": "Tailwind",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278891/tailwind-svgrepo-com_kyjsri.svg",
+    "category": "framework",
+    "order": 7,
+    "active": true
+  },
+  {
+    "name": "Node.js",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278891/node-svgrepo-com_wasrz9.svg",
+    "category": "other",
+    "order": 5,
+    "active": true
+  },
+  {
+    "name": "Express.js",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278891/express-svgrepo-com_jz8nlq.svg",
+    "category": "framework",
+    "order": 4,
+    "active": true
+  },
+  {
+    "name": "NestJS",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278891/nestjs-svgrepo-com_ltzwj5.svg",
+    "category": "framework",
+    "order": 3,
+    "active": true
+  },
+  {
+    "name": "MongoDB",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278891/mongo-svgrepo-com_jqxazw.svg",
+    "category": "db",
+    "order": 9,
+    "active": true
+  },
+  {
+    "name": "PostgreSQL",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752279090/postgresql-svgrepo-com_l6azyc.svg",
+    "category": "db",
+    "order": 10,
+    "active": true
+  },
+  {
+    "name": "Git",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278893/git-svgrepo-com_hkkzvl.svg",
+    "category": "other",
+    "order": 11,
+    "active": true
+  },
+  {
+    "name": "Vercel",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278893/vercel-fill-svgrepo-com_mfh8x1.svg",
+    "category": "other",
+    "order": 12,
+    "active": true
+  },
+  {
+    "name": "JWT",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278900/icons8-jwt-480_x707to.png",
+    "category": "other",
+    "order": 13,
+    "active": true
+  },
+  {
+    "name": "Scrum",
+    "image": "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752278893/scrum-svgrepo-com_c8shvc.svg",
+    "category": "other",
+    "order": 14,
+    "active": true
+  }
+]

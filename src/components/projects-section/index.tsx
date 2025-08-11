@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
-import { getAllProjects } from "@/services/productsService";
+import data from "./data.json"
 import ProjectCardSkeleton from "./ProjectCardSkeleton";
 
 export interface Project {
-  _id: string;
+  // _id: string;
   title: string;
   description: { language: string; text: string }[];
   technologies: string[];
@@ -21,10 +21,9 @@ export const ProjectsSection = ({ language }: { language: string }) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchProjects = () => {
       try {
-        const projects = await getAllProjects();
-        setProjects(projects);
+        setProjects(data)
       } catch {
         setError(true);
       } finally {
@@ -62,7 +61,7 @@ export const ProjectsSection = ({ language }: { language: string }) => {
             : !error &&
               projects?.map((project, index) => (
                 <ProjectCard
-                  key={project._id}
+                  key={index}
                   project={project}
                   index={index}
                   language={language}
