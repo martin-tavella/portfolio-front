@@ -51,11 +51,11 @@ const TechCard = ({ tech, language }: { tech: Technology; language: string }) =>
         </div>
 
         {/* Category badge */}
-        <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <span className="text-xs font-mono px-1 py-0.5 bg-black/50 rounded">
             {language === "en" ? categories.en[tech.category] : categories.es[tech.category]}
-          </span>
-        </div>
+          </span> */}
+        {/* </div> */}
       </div>
     </div>
   );
