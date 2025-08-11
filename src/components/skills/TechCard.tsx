@@ -1,24 +1,27 @@
 import Image from "next/image";
 import { Technology } from "./SkillsList";
 
-const TechCard = ({ tech, language }: { tech: Technology; language: string }) => {
+const TechCard = ({ tech
+  // , 
+  // language 
+}: { tech: Technology; language: string }) => {
 
-  const categories = {
-    es: {
-      language: "Lenguaje",
-      library: "Librería",
-      framework: "Framework",
-      db: "Bases de datos",
-      other: "Otro",
-    },
-    en: {
-      language: "Languages",
-      library: "Library",
-      framework: "Frameworks",
-      db: "Database",
-      other: "Other",
-    },
-  };
+  // const categories = {
+  //   es: {
+  //     language: "Lenguaje",
+  //     library: "Librería",
+  //     framework: "Framework",
+  //     db: "Bases de datos",
+  //     other: "Otro",
+  //   },
+  //   en: {
+  //     language: "Languages",
+  //     library: "Library",
+  //     framework: "Frameworks",
+  //     db: "Database",
+  //     other: "Other",
+  //   },
+  // };
 
 
   return (
