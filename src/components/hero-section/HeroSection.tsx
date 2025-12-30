@@ -63,7 +63,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
       welcomeTypingTimeout = setTimeout(() => {
         setDisplayText((prev) => prev + fullText[currentIndex])
         setCurrentIndex((prev) => prev + 1)
-      }, 100)
+      }, 50)
     }
     return () => clearTimeout(welcomeTypingTimeout)
   }, [currentIndex, fullText])
@@ -77,12 +77,12 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
       // Solo iniciar el temporizador de espera si nameIndex es 0 (primera vez)
       waitingTimeout = setTimeout(() => {
         setNameIndex(1) // Iniciar el tipado del nombre
-      }, 3000) // Espera 3 segundos antes de empezar a escribir el nombre
+      }, 2000) // Espera 3 segundos antes de empezar a escribir el nombre
     } else if (nameIndex < nameText.length) {
       nameTypingTimeout = setTimeout(() => {
         setDisplayName((prev) => prev + nameText[nameIndex])
         setNameIndex((prev) => prev + 1)
-      }, 100) // Velocidad de tipado para el nombre
+      }, 50) // Velocidad de tipado para el nombre
     } else {
       setShowNameCursor(false) // Ocultar cursor del nombre cuando termina de escribir
     }
@@ -111,11 +111,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
     return () => clearInterval(interval)
   }, [])
 
-  // Calcular el delay total para los elementos que aparecen después de los textos tipados
-  const totalTypingDelay = Math.max(
-    fullText.length * 0.1, // Tiempo para el mensaje de bienvenida
-    3 + nameText.length * 0.1, // Tiempo para el nombre (incluyendo el delay inicial)
-  )
+
 
   return (
     <section
@@ -203,38 +199,12 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
 
         {/* Contenedor para la imagen y el nombre tipado */}
         <div
-          className="flex flex-col-reverse gap-10 items-center justify-center mt-20" // Ajusta el margen superior
+          className="flex flex-col gap-10 items-center justify-center mt-20" // Ajusta el margen superior
         >
-          {/* Placeholder de imagen */}
-          <motion.div
-           initial={{ opacity: 0, scale: 0.8 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 0.5, delay: totalTypingDelay + 1 }}
-          >
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 border-2 border-green-400/30 text-green-400 hover:bg-green-400/10 hover:text-green-300 transition-all duration-200 font-mono text-sm sm:text-base"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: totalTypingDelay + 1.5 + index * 0.1 }} // Staggered appearance
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="text-lg">{link.icon}</span>
-                {link.name}
-              </motion.a>
-            ))}
-          </div>
-          </motion.div>
           <motion.img
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: totalTypingDelay + 1 }}
+            transition={{ duration: 0.5, delay: 1.5 }}
             src={img.src}
             alt="provisional-pic"
             className="rounded-full w-70 h-70 sm:w-100 sm:h-100 object-cover mx-auto mb-4 mask-radial-at-center mask-radial-from-45% mask-radial-to-80%" 
@@ -249,6 +219,33 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
               |
             </span>
           </h1>
+          
+          {/* Social Links */}
+          <motion.div
+           initial={{ opacity: 0, scale: 0.8 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 0.5, delay: 3.5 }}
+          >
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 border-2 border-green-400/30 text-green-400 hover:bg-green-400/10 hover:text-green-300 transition-all duration-200 font-mono text-sm sm:text-base"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 3.5 + index * 0.2 }} // Staggered appearance
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="text-lg">{link.icon}</span>
+                {link.name}
+              </motion.a>
+            ))}
+          </div>
+          </motion.div>
         </div>
       </div>
     </section>
