@@ -11,12 +11,7 @@
         "text": "Aplicación frontend para trabajadores freelance. Desarrollada con tecnologías modernas para un rendimiento óptimo, incluyendo integración de pagos y panel de administración."
       }
     ],
-    "technologies": [
-      "Next.js",
-      "React",
-      "Tailwind CSS",
-      "TypeScript"
-    ],
+    "technologies": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     "github": [
       {
         "name": "frontend",
@@ -24,11 +19,11 @@
       }
     ],
     "image": [
-      "https://res.cloudinary.com/dmeuurnnv/image/upload/v1752191586/servicio-libre-landing_sunei2.png"
+      "/img/sl-front.png"
     ],
     "demos": [
       {
-        "name": "Deploy Frontend",
+        "name": "Live Site",
         "url": "https://serviciolibre.vercel.app"
       }
     ]
@@ -52,7 +47,9 @@
       "Stripe",
       "PostgreSQL"
     ],
-    "image": ["https://res.cloudinary.com/dmeuurnnv/image/upload/v1754950302/Captura_de_pantalla_2025-08-07_002759_odfmfe.png"],
+    "image": [
+      "/img/sl-back.png"
+    ],
     "github": [
       {
         "name": "backend",
@@ -61,8 +58,42 @@
     ],
     "demos": [
       {
-        "name": "Deploy Backend",
+        "name": "Live Site",
         "url": "https://back-servicio-libre.onrender.com"
+      }
+    ]
+  },
+  {
+    "title": "Angli Estudio",
+    "description": [
+      {
+        "language": "en",
+        "text": "Professional landing page for a creative studio. Optimized for high performance and SEO, featuring a modern UI with smooth transitions and a conversion-focused structure."
+      },
+      {
+        "language": "es",
+        "text": "Landing page profesional para estudio creativo. Optimizada para alto rendimiento y SEO, con una interfaz moderna, transiciones fluidas y una estructura enfocada a la conversión."
+      }
+    ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    "github": [
+      {
+        "name": "frontend",
+        "url": "https://github.com/martin-tavella/angli-web"
+      }
+    ],
+    "image": [
+      "/img/angli.png"
+    ],
+    "demos": [
+      {
+        "name": "Live Site",
+        "url": "https://angliestudio.com.ar"
       }
     ]
   }
