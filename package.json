@@ -16,7 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.10.0",
     "framer-motion": "^12.23.3",
-    "next": "15.3.5",
+    "next": "15.3.8",
     "next-sitemap": "^4.2.3",
     "nodemailer": "^7.0.5",
     "react": "^19.0.0",
